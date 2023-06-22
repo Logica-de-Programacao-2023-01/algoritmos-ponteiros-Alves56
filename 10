@@ -1,0 +1,46 @@
+package main
+
+import (
+	"fmt"
+)
+
+func isPrime(n int) bool {
+	if n <= 1 {
+		return false
+	}
+
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+
+	return true
+}
+
+func preencherPrimos(slicePtr *[]int, tamanho int) {
+	slice := *slicePtr
+	slice = make([]int, tamanho) // Cria um novo slice com o tamanho especificado
+
+	count := 0
+	num := 2
+
+	for count < tamanho {
+		if isPrime(num) {
+			slice[count] = num
+			count++
+		}
+		num++
+	}
+
+	*slicePtr = slice // Atualiza o ponteiro para o novo slice preenchido com os números primos
+}
+
+func main() {
+	var numerosPrimos []int
+	tamanho := 10
+
+	preencherPrimos(&numerosPrimos, tamanho)
+
+	fmt.Println(numerosPrimos)
+}
