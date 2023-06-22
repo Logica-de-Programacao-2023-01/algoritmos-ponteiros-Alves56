@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func somarUltimosDigitos(ptr *int) {
+	num := *ptr
+
+	digito1 := num % 10
+	num /= 10
+	digito2 := num % 10
+
+	soma := digito1 + digito2
+	*ptr = soma
+}
+
+func main() {
+	numero := 1234
+
+	somarUltimosDigitos(&numero)
+
+	fmt.Println("Novo valor:", numero)
+}
