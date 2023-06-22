@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func atualizarMedia(ptr *float64) {
+	valorAtual := *ptr
+	media := (valorAtual + math.Pi) / 2
+	*ptr = media
+}
+
+func main() {
+	numero := 3.14
+
+	atualizarMedia(&numero)
+
+	fmt.Println("Novo valor:", numero)
+}
