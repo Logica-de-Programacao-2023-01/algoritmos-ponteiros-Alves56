@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func somaNaturais(ptr *int, n int) {
+	sum := 0
+	for i := 1; i <= n; i++ {
+		sum += i
+	}
+	*ptr = sum
+}
+
+func main() {
+	num := 0
+	n := 5
+
+	somaNaturais(&num, n)
+
+	fmt.Println("Soma dos", n, "primeiros números naturais:", num)
+}
