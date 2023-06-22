@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+type Livro struct {
+	Titulo string
+	Autor  string
+}
+
+func atualizarTitulo(livroPtr *Livro) {
+	if livroPtr.Autor == "Anônimo" {
+		livroPtr.Titulo = "Desconhecido"
+	}
+}
+
+func main() {
+	livro := Livro{
+		Titulo: "Livro1",
+		Autor:  "Anônimo",
+	}
+
+	atualizarTitulo(&livro)
+
+	fmt.Println("Título:", livro.Titulo)
+	fmt.Println("Autor:", livro.Autor)
+}
