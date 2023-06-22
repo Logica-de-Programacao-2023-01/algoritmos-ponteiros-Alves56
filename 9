@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+)
+
+type Livro struct {
+	Titulo string
+	Autor  string
+	Preco  float64
+}
+
+func aplicarDesconto(livroPtr *Livro) {
+	livroPtr.Preco = livroPtr.Preco * 0.9 // Aplicando desconto de 10% no preço do livro
+}
+
+func main() {
+	livro := Livro{
+		Titulo: "Aventuras na Floresta",
+		Autor:  "João Silva",
+		Preco:  50.0,
+	}
+
+	fmt.Println("Preço antes do desconto:", livro.Preco)
+
+	aplicarDesconto(&livro) // Passando o endereço de memória da struct Livro como argumento
+
+	fmt.Println("Preço depois do desconto:", livro.Preco)
+}
